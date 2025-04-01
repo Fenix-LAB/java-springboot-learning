@@ -16,14 +16,21 @@ The resources will be stored in a database, and the API will be built using Spri
 2. Navigate to the directory in your terminal.
 3. Run the following command to create a new Spring Boot project:
    ```bash
-   spring init --dependencies=web,data-jpa,postgresql --build=maven --java-version=17 --packaging=jar --name=my-api my-api
+   spring init --dependencies=web,data-jpa,postgresql --build=maven --java-version=17 --packaging=jar --extract .
    ```
-4. Navigate to the newly created project directory:
+4. Open the project in your favorite IDE (e.g., IntelliJ IDEA, Eclipse, etc.).
+5. Clean and build the project using Maven:
    ```bash
-   cd my-api
+   mvn clean install
    ```
-5. Open the project in your favorite IDE (e.g., IntelliJ IDEA, Eclipse, etc.).
-6. Open the `pom.xml` file and add the following dependencies:
+6. Run the application using the following command:
+   ```bash
+    mvn spring-boot:run
+    ```
+7. Open your web browser and navigate to `http://localhost:8080` to see the default Spring Boot welcome page.
+8. To stop the application, press `Ctrl + C` in the terminal where the application is running.
+    
+9. Open the `pom.xml` file and add the following dependencies:
    ```xml
    <dependency>
        <groupId>org.springframework.boot</groupId>
@@ -39,7 +46,7 @@ The resources will be stored in a database, and the API will be built using Spri
        <scope>runtime</scope>
    </dependency>
    ```
-7. Create a new file named `application.properties` in the `src/main/resources` directory and add the following configuration:
+6. Create a new file named `application.properties` in the `src/main/resources` directory and add the following configuration:
    ```properties
     spring.datasource.url=jdbc:postgresql://localhost:5432/mydb
     spring.datasource.username=myuser
