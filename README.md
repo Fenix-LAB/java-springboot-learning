@@ -22,6 +22,8 @@ The resources will be stored in a database, and the API will be built using Spri
 5. Clean and build the project using Maven:
    ```bash
    mvn clean install
+   # Or skipping tests
+   mvn clean install -DskipTests
    ```
 6. Run the application using the following command:
    ```bash
