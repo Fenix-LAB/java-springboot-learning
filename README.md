@@ -48,16 +48,53 @@ The resources will be stored in a database, and the API will be built using Spri
        <scope>runtime</scope>
    </dependency>
    ```
-6. Create a new file named `application.properties` in the `src/main/resources` directory and add the following configuration:
-   ```properties
-    spring.datasource.url=jdbc:postgresql://localhost:5432/mydb
-    spring.datasource.username=myuser
-    spring.datasource.password=mypassword
-    spring.jpa.hibernate.ddl-auto=update
-    spring.jpa.show-sql=true
-    spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
-    spring.jpa.properties.hibernate.format_sql=true
-    spring.jpa.properties.hibernate.use_sql_comments=true
 
+   ## Dependency for a dummy database
+   ```xml
+   <dependency>
+       <groupId>com.h2database</groupId>
+       <artifactId>h2</artifactId>
+       <scope>runtime</scope>
+   </dependency>
+   ```
+ 
+ ## DEpendency for hot reloading
+   ```xml
+   <dependency>
+       <groupId>org.springframework.boot</groupId>
+       <artifactId>spring-boot-devtools</artifactId>
+       <scope>runtime</scope>
+       <optional>true</optional>
+   </dependency>
+   ```
+   ## Dependency for testing
+   ```xml
+   <dependency>
+       <groupId>org.springframework.boot</groupId>
+       <artifactId>spring-boot-starter-test</artifactId>
+       <scope>test</scope>
+   </dependency>
+   ```
 
+# Notes (markdown)
+![Note]
+> ALWAYS use the comand `mvn clean install` to build the project every time you add a new dependency to the `pom.xml` file. This will ensure that all dependencies are downloaded and the project is built correctly.
+
+## Useful commands
+- To run the application:
+```bash
+mvn spring-boot:run
+```
+- To run the application with Java:
+```bash
+java -jar target/your-application.jar
+```
+- To show dependency tree:
+```bash
+mvn dependency:tree
+```
+- To run tests:
+```bash
+mvn test
+```
     
